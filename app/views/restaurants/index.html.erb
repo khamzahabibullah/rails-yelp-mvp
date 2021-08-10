@@ -1,9 +1,14 @@
 <h1 class="text-center">Restaurants</h1>
 
-<ul>
+<p><%= link_to '+ Add a new restaurant', new_restaurant_path, class: 'btn btn-primary' %></p>
+
+<table class="table">
   <% @restaurants.each do |restaurant| %>
-    <li>
-      <%= restaurant.name %>
-    </li>
+    <tr>
+      <td class="d-flex justify-content-between">
+        <%= link_to restaurant.name, restaurant_path(restaurant.id) %>
+        <%= restaurant.address %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
